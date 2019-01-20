@@ -1,9 +1,9 @@
 Tasks packages to manage extract Kubernetes Pod Service Ip address
 
-Available task:
+## Available task:
 - Get Pod Service Ip Address
 
-This task package is compatible with:
+## Supported build agents
 - Hosted macOS build agent (supported)
 - Hosted VS2017 (supported)
 - Any private build agent with Powershell and Azure CLI installed
