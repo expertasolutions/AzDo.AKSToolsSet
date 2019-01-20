@@ -1,0 +1,55 @@
+{
+  "manifestVersion": 1,
+  "id": "KubectlGetServiceIp",
+  "name": "Kubernetes Service Address Ip extractor",
+  "version": "__Build.BuildNumber__",
+  "publisher": "experta",
+  "targets": [
+      {
+          "id": "Microsoft.VisualStudio.Services"
+      }
+  ],    
+  "description": "Extract Pod Service Ip Address from Kubernetes Cluster",
+  "tags": [
+    "Kubernetes",
+    "Containers",
+    "Build",
+    "Release",
+    "Azure Pipelines",
+    "macOS",
+    "linux",
+    "windows"
+  ],
+  "categories": [
+      "Azure Pipelines"
+  ],
+  "icons": {
+      "default": "icon.png"        
+  },
+  "content": {
+    "details": {
+      "path": "overview.md"
+    },
+    "licences": {
+      "path": "license.md"
+    }
+  },
+  "files": [
+      {
+          "path": "KubectlGetServiceIp"
+      }
+  ],
+  "public": true,
+  "contributions": [
+      {
+          "id": "custom-build-release-task",
+          "type": "ms.vss-distributed-task.task",
+          "targets": [
+              "ms.vss-distributed-task.tasks"
+          ],
+          "properties": {
+              "name": "KubectlGetServiceIp"
+          }
+      }
+  ]
+}
