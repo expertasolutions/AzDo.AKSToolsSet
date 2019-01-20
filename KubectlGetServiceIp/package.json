@@ -1,0 +1,26 @@
+{
+  "name": "akssqlrestore",
+  "version": "1.0.0",
+  "description": "DbImpAskCtnSqlSrvLinux",
+  "main": "sample.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Solutions Experta Inc.",
+  "license": "MIT",
+  "dependencies": {
+    "@types/del": "^2.2.0",
+    "@types/glob": "^5.0.10",
+    "@types/mocha": "^2.2.5",
+    "@types/node": "^6.0.101",
+    "@types/q": "^1.5.0",
+    "azure-arm-rest": "file:../_builds/azure-arm-rest-1.0.2.tgz",
+    "azure-storage": "^2.10.2",
+    "del": "2.2.0",
+    "docker-common": "file:../_builds/docker-common-1.0.0.tgz",
+    "moment": "2.21.0",
+    "utility-common": "file:../_builds/utility-common-1.0.2.tgz",
+    "vsts-task-lib": "^2.7.0",
+    "vsts-task-tool-lib": "0.4.0"
+  }
+}
