@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "KubectlGetServiceIp",
   "name": "Kubernetes Service Address Ip extractor",
-  "version": "__Build.BuildNumber__",
+  "version": "__major__.__minor__.__patch__",
   "publisher": "experta",
   "targets": [
       {
