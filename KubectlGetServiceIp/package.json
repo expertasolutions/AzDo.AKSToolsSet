@@ -1,7 +1,7 @@
 {
-  "name": "akssqlrestore",
+  "name": "KubectlGetServiceIp",
   "version": "1.0.0",
-  "description": "DbImpAskCtnSqlSrvLinux",
+  "description": "Extract Pod Service Ip Address from Kubernetes Cluster",
   "main": "sample.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
