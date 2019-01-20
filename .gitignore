@@ -1,4 +1,7 @@
-kubectlGetServiceIp/node_modules
+node_modules
 *.vsix
 _build
 _packages
+package-lock.json
+.vscode
+KubectlGetServiceIp/node_modules
