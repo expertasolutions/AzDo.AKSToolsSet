@@ -8,7 +8,9 @@ This task package is compatible with:
 - Hosted VS2017 (supported)
 - Any private build agent with Powershell and Azure CLI installed
 
-<img src="https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/PodServiceIP-CI?branchName=master">
+#Branches status
+- Dev -> https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/AKSToolsSet-CI?branchName=Dev
+- Master -> https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/AKSToolsSet-CI?branchName=master
 
 ## KubectlGetServiceIp (required parameters)
 - Azure subscription
