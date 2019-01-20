@@ -14,6 +14,7 @@
     "@types/mocha": "^2.2.5",
     "@types/node": "^6.0.101",
     "@types/q": "^1.5.0",
+    "azure-arm-resource": "^7.3.0",
     "azure-arm-rest": "file:../_builds/azure-arm-rest-1.0.2.tgz",
     "azure-storage": "^2.10.2",
     "del": "2.2.0",
@@ -21,7 +22,6 @@
     "moment": "2.21.0",
     "utility-common": "file:../_builds/utility-common-1.0.2.tgz",
     "vsts-task-lib": "^2.7.0",
-    "vsts-task-tool-lib": "0.4.0",
-    "azure-arm-resource": "^7.3.0"
+    "vsts-task-tool-lib": "0.4.0"
   }
 }
