@@ -90,7 +90,7 @@
     ],
     "execution": {
         "Node": {
-            "target": "src//sample.js",
+            "target": "src//aksGetServiceIp.js",
             "argumentFormat": ""
         }
       },

@@ -23,15 +23,24 @@
   "categories": [
       "Azure Pipelines"
   ],
+  "links" : {
+      "support" : {
+          "uri" : "https://github.com/expertasolutions/AKSToolsSet/issues"
+      }
+  },
+  "repository" : {
+    "type" : "git",
+    "uri" : "https://github.com/expertasolutions/AKSToolsSet"
+  },
   "icons": {
       "default": "icon.png"        
   },
   "content": {
     "details": {
-      "path": "overview.md"
+      "path": "README.md"
     },
     "licences": {
-      "path": "license.md"
+      "path": "license"
     }
   },
   "files": [

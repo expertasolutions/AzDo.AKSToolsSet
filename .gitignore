@@ -1,0 +1,4 @@
+kubectlGetServiceIp/node_modules
+*.vsix
+_build
+_packages
