@@ -22,9 +22,9 @@ This task package is compatible with:
 - Kubernetes Cluster
 - Target pod service name
 
-#Task Output variables
+## Task Output variables
 - $referenceName.podServiceIp
 
-# Requirements
+## Requirements
 
 - Azure CLI must be installed on the build agent
