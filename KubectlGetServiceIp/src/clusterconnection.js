@@ -18,7 +18,6 @@ class ClusterConnection {
     
     constructor(existingKubeConfigPath) {
         this.kubectlPath = tl.which("kubectl", false);
-        console.log("kubectlPath =" + this.kubectlPath);
         this.userDir = utils.getNewUserDirPath();
         if (existingKubeConfigPath) {
             this.kubeconfigFile = existingKubeConfigPath;
