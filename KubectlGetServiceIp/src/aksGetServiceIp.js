@@ -51,9 +51,10 @@ catch (error) {
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
-        var targetServiceName = tl.getInput("targetService", true);
-        console.log("targetService: " + targetServiceName);
-
+        console.log("inside it");
+        //var targetServiceName = tl.getInput("targetService", true);
+        //console.log("targetService: " + targetServiceName);
+/*
         console.log("Finding pod service ip address...");
         while(tl.getVariable("podServiceIp") == null) {
             console.log("Pod Service Ip not found, still looking")
@@ -72,6 +73,7 @@ function run(clusterConnection, command) {
                     }
                 });
         };
+*/
     });
 }
 
