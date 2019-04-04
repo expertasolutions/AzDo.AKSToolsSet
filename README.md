@@ -8,14 +8,6 @@ Tasks packages to manage extract Kubernetes Pod Service Ip address
 - Hosted VS2017 (supported)
 - Any private build agent with Powershell and Azure CLI installed
 
-## Branches builds status
-- Dev -> <img src="https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/AKSToolsSet-CI?branchName=Dev"/>
-- Master -> <img src="https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/AKSToolsSet-CI?branchName=master"/>
-
-## Release status
-- QA -> <img src="https://vsrm.dev.azure.com/experta/_apis/public/Release/badge/5b43050d-0a01-4269-ace5-9e22c920391c/13/43"/>
-- VS-Marketplace -> <img src="https://vsrm.dev.azure.com/experta/_apis/public/Release/badge/5b43050d-0a01-4269-ace5-9e22c920391c/13/45"/>
-
 ## KubectlGetServiceIp (required parameters)
 - Azure subscription
 - Azure resource group
