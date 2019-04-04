@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const tl = require("azure-pipelines-task-lib/task");
+const tl = require("azure-pipelines-task-lib");
 const path = require("path");
 const fs = require("fs");
 const kubernetesCommand = require("./kubernetescommand");
