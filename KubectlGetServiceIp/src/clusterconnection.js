@@ -17,6 +17,7 @@ const toolLib = require("azure-pipelines-task-lib");
 class ClusterConnection {
     
     constructor(existingKubeConfigPath) {
+        console.log("ClusterConnection constructor");
         this.kubectlPath = tl.which("kubectl", false);
         this.userDir = utils.getNewUserDirPath();
         if (existingKubeConfigPath) {

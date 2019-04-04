@@ -8,12 +8,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const tl = require("vsts-task-lib/task");
+const tl = require("azure-pipelines-task-lib");
 const azure_arm_aks_service_1 = require("azure-arm-rest/azure-arm-aks-service");
 const azure_arm_endpoint_1 = require("azure-arm-rest/azure-arm-endpoint");
 
 // get kubeconfig file content
 function getKubeConfigFromAKS(azureSubscriptionEndpoint, resourceGroup, clusterName) {
+    console.log("getKubeConfigFromAKS");
     return __awaiter(this, void 0, void 0, function* () {
         var azureEndpoint = yield (new azure_arm_endpoint_1.AzureRMEndpoint(azureSubscriptionEndpoint)).getEndpoint();
         var aks = new azure_arm_aks_service_1.AzureAksService(azureEndpoint);
@@ -25,6 +26,7 @@ function getKubeConfigFromAKS(azureSubscriptionEndpoint, resourceGroup, clusterN
 
 function getKubeConfig() {
     return __awaiter(this, void 0, void 0, function* () {
+        console.log("getKubeConfig");
         var azureSubscriptionEndpoint = tl.getInput("azureSubscriptionEndpoint", true);
         var resourceGroup = tl.getInput("containerAzureResourceGroup", true);
         var clusterName = tl.getInput("kubernetesCluster", true);
