@@ -13,8 +13,6 @@ const tl = require('azure-pipelines-task-lib');
 const path = require("path");
 
 const clusterconnection_1 = require("./clusterconnection");
-const kubectlConfigMap = require("./kubernetesconfigmap");
-const kubectlSecret = require("./kubernetessecret");
 tl.setResourcePath(path.join(__dirname, '..', 'task.json'));
 // Change to any specified working directory
 tl.cd(tl.getInput("cwd"));
@@ -53,15 +51,6 @@ catch (error) {
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
-        //var secretName = tl.getInput("secretName", false);
-        //var configMapName = tl.getInput("configMapName", false);
-        //if (secretName) {
-        //    yield kubectlSecret.run(clusterConnection, secretName);
-        //}
-        //if (configMapName) {
-        //    yield kubectlConfigMap.run(clusterConnection, configMapName);
-        //}
-
         var targetServiceName = tl.getInput("targetService", true);
         console.log("targetService: " + targetServiceName);
 
