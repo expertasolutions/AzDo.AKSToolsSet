@@ -11,9 +11,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var https = require('https');
 var fs = require('fs');
 const path = require("path");
-const tl = require("azure-pipelines-task-lib");
+const tl = require("vsts-task-lib/task");
 const os = require("os");
-const toolLib = require("azure-pipelines-task-lib");
+const toolLib = require("vsts-task-tool-lib/tool");
 const kubectlutility = require("utility-common/kubectlutility");
 
 function getTempDirectory() {

@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 
-const tl = require('azure-pipelines-task-lib');
+const tl = require("vsts-task-lib/task");
 const path = require("path");
 
 const clusterconnection_1 = require("./clusterconnection");

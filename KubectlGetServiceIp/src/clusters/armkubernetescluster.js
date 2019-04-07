@@ -8,7 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const tl = require("azure-pipelines-task-lib");
+const tl = require("vsts-task-lib/task");
 const azure_arm_aks_service_1 = require("azure-arm-rest/azure-arm-aks-service");
 const azure_arm_endpoint_1 = require("azure-arm-rest/azure-arm-endpoint");
 

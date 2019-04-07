@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const tl = require("azure-pipelines-task-lib");
+const tl = require("vsts-task-lib/task");
 const kubernetesCommand = require("./kubernetescommand");
 const acrauthenticationtokenprovider_1 = require("docker-common/registryauthenticationprovider/acrauthenticationtokenprovider");
 const genericauthenticationtokenprovider_1 = require("docker-common/registryauthenticationprovider/genericauthenticationtokenprovider");

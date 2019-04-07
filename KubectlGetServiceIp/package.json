@@ -15,11 +15,11 @@
     "@types/node": "^6.0.101",
     "@types/q": "^1.5.0",
     "azure-arm-rest": "file:../_builds/azure-arm-rest-1.0.2.tgz",
-    "azure-pipelines-tool-lib": "^0.12.0",
-    "azure-storage": "^2.10.2",
     "del": "2.2.0",
     "docker-common": "file:../_builds/docker-common-1.0.0.tgz",
     "moment": "2.21.0",
-    "utility-common": "file:../_builds/utility-common-1.0.2.tgz"
+    "utility-common": "file:../_builds/utility-common-1.0.2.tgz",
+    "vsts-task-lib": "2.0.5",
+    "vsts-task-tool-lib": "0.4.0"
   }
 }
