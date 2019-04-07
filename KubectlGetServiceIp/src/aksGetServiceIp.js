@@ -13,14 +13,11 @@ const tl = require("vsts-task-lib/task");
 const path = require("path");
 
 const clusterconnection_1 = require("./clusterconnection");
-const kubectlConfigMap = require("./kubernetesconfigmap");
-const kubectlSecret = require("./kubernetessecret");
 tl.setResourcePath(path.join(__dirname, '..', 'task.json'));
 // Change to any specified working directory
 tl.cd(tl.getInput("cwd"));
 
 var registryType = "Azure Container Registry";
-var connectionType = "Azure Resource Manager";
 const environmentVariableMaximumSize = 32766;
 
 var command = "get";
@@ -54,15 +51,7 @@ catch (error) {
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
-        var secretName = tl.getInput("secretName", false);
-        var configMapName = tl.getInput("configMapName", false);
-        if (secretName) {
-            yield kubectlSecret.run(clusterConnection, secretName);
-        }
-        if (configMapName) {
-            yield kubectlConfigMap.run(clusterConnection, configMapName);
-        }
-
+        console.log("inside it");
         var targetServiceName = tl.getInput("targetService", true);
         console.log("targetService: " + targetServiceName);
 
