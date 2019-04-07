@@ -1,4 +1,4 @@
-Tasks packages to manage extract Kubernetes Pod Service Ip address
+# Tasks packages to manage extract Kubernetes Pod Service Ip address
 
 ## Available task:
 - Get Pod Service Ip Address
@@ -18,5 +18,7 @@ Tasks packages to manage extract Kubernetes Pod Service Ip address
 - $referenceName.podServiceIp
 
 ## Requirements
-
 - Azure CLI must be installed on the build agent
+
+## Builds status
+[![Build status](https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/Azure DevOps Extensions/GitHub-AKSToolsSet-CI)](https://dev.azure.com/experta/ExpertaSolutions/_build/latest?definitionId=196)
