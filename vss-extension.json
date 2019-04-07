@@ -44,6 +44,7 @@
     }
   },
   "badges" : [{
+    "href" : "https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/Azure DevOps Extensions/GitHub-AKSToolsSet-CI?branchName=master",
     "uri" : "https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/Azure DevOps Extensions/GitHub-AKSToolsSet-CI?branchName=master",
     "description" : "Master Build"
   }],
