@@ -51,11 +51,9 @@ catch (error) {
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log("inside it");
         var targetServiceName = tl.getInput("targetService", true);
         console.log("targetService: " + targetServiceName);
 
-        console.log("Pod Service Ip not found, still looking")
         yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
             .then(function() {
                 var podService = tl.getVariable('podServiceContent');
