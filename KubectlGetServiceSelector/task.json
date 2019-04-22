@@ -16,7 +16,7 @@
         "Patch": "__patch__"
     },
     "demands": [],
-    "instanceNameFormat": "Kubectl Get Service",
+    "instanceNameFormat": "Kubectl Get Service Selector value",
     "groups": [
         {
             "name": "kubernetesCluster",
