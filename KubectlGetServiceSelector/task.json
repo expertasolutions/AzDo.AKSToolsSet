@@ -4,6 +4,7 @@
     "friendlyName": "Get Pod service selectors",
     "description": "Extract Pod Service Selectors from Kubernetes Cluster",
     "helpMarkDown": "",
+    "preview": true,
     "category": "Utility",
     "visibility": [
         "Release"
