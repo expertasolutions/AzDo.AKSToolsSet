@@ -55,7 +55,8 @@
   }
 ],
   "files": [
-      { "path": "KubectlGetServiceIp" }
+      { "path": "KubectlGetServiceIp" },
+      { "path": "KubectlGetServiceSelector"}
   ],
   "public": true,
   "contributions": [
@@ -68,6 +69,16 @@
           "properties": {
               "name": "KubectlGetServiceIp"
           }
-      }
+      },
+      {
+        "id": "KubectlGetServiceSelector-task",
+        "type": "ms.vss-distributed-task.task",
+        "targets": [
+            "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+            "name": "KubectlGetServiceSelector"
+        }
+    }
   ]
 }
