@@ -115,6 +115,7 @@ class ClusterConnection {
         });
         return command.exec(options).fail(error => {
             //errlines.forEach(line => tl.error(line));
+            tl.setVariable("serviceExists", false);
             throw error;
         });
     }
