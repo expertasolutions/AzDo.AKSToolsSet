@@ -36,36 +36,36 @@ try {
         return run(connection, command);
 })
 .then(() => {
-        tl.setResult(tl.TaskResult.Succeeded, "");
+    tl.setResult(tl.TaskResult.Succeeded, "");
     if (command !== "login") {
         connection.close();
     }
 }).catch((error) => {
-        tl.setResult(tl.TaskResult.Failed, error.message);
+    tl.setResult(tl.TaskResult.Failed, error.message);
     connection.close();
 });
 }
 catch (error) {
-    tl.setResult(tl.TaskResult.Failed, error.message);
+    if(error.message.contains("(NotFound)")) {
+        tl.setVariable("serviceExists", false);
+    } else {
+        tl.setResult(tl.TaskResult.Failed, error.message);
+    }
 }
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
         var targetServiceName = tl.getInput("targetService", true);
-        try {
-            yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
-                .then(function() {
-                    var podService = tl.getVariable('podServiceContent');
-                    let json = JSON.parse(podService);
-                    var selectorName = tl.getInput("targetSelectorName", true);
-                    var selectorValue = json.spec.selector[selectorName];
-                    console.log("selectorValue: " + selectorValue);
-                    tl.setVariable("selectorValue", selectorValue);
-                    tl.setVariable("serviceExists", true);
-                });
-        } catch {
-            tl.setVariable("serviceExists", false);
-        }
+        yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
+            .then(function() {
+                var podService = tl.getVariable('podServiceContent');
+                let json = JSON.parse(podService);
+                var selectorName = tl.getInput("targetSelectorName", true);
+                var selectorValue = json.spec.selector[selectorName];
+                console.log("selectorValue: " + selectorValue);
+                tl.setVariable("selectorValue", selectorValue);
+                tl.setVariable("serviceExists", true);
+            });
     });
 }
 
