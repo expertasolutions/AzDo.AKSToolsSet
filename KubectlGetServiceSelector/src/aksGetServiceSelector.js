@@ -52,17 +52,21 @@ catch (error) {
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
         var targetServiceName = tl.getInput("targetService", true);
-        
-        yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
-            .then(function() {
-                var podService = tl.getVariable('podServiceContent');
-                let json = JSON.parse(podService);
-                var selectorName = tl.getInput("targetSelectorName", true);
-                var selectorValue = json.spec.selector[selectorName];
-                console.log("selectorValue: " + selectorValue);
-                tl.setVariable("selectorValue", selectorValue);
-                tl.setVariable("serviceExists", true);
-            });
+        try {
+            yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
+                .then(function() {
+                    var podService = tl.getVariable('podServiceContent');
+                    let json = JSON.parse(podService);
+                    var selectorName = tl.getInput("targetSelectorName", true);
+                    var selectorValue = json.spec.selector[selectorName];
+                    console.log("selectorValue: " + selectorValue);
+                    tl.setVariable("selectorValue", selectorValue);
+                    tl.setVariable("serviceExists", true);
+                });
+        } catch(err) {
+            console.log("failed: " + err);
+            tl.setVariable("serviceExists", false);
+        }
     });
 }
 
@@ -92,10 +96,6 @@ function executeKubectlCommand(clusterConnection, command, args) {
     console.log("##vso[telemetry.publish area=%s;feature=%s]%s", "TaskEndpointId", "KubernetesV1", JSON.stringify(telemetry));
     var result = "";
     return commandImplementation.run(clusterConnection, command, args, (data) => result += data)
-        .error(function(err) {
-            console.log("failed: " + err);
-            tl.setVariable("serviceExists", false);
-        })
         .fin(function cleanup() {
                 var commandOutputLength = result.length;
                 if (commandOutputLength > environmentVariableMaximumSize) {

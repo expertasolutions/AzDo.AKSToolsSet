@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tl = require("vsts-task-lib/task");
+
 function run(connection, kubecommand, args, outputUpdate) {
     var command = connection.createCommand();
     command.on("stdout", output => {
