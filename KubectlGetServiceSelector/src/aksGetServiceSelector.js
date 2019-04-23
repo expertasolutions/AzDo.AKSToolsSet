@@ -55,7 +55,10 @@ catch (error) {
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
+        
         tl.setVariable("serviceExists", "false");
+        tl.setVariable("selectorValue", "");
+
         var targetServiceName = tl.getInput("targetService", true);
         yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
             .then(function() {
