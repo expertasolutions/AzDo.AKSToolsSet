@@ -55,7 +55,7 @@ catch (error) {
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
-        tl.setVariable("serviceExists", false);
+        tl.setVariable("serviceExists", "false");
         var targetServiceName = tl.getInput("targetService", true);
         yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
             .then(function() {
@@ -65,7 +65,7 @@ function run(clusterConnection, command) {
                 var selectorValue = json.spec.selector[selectorName];
                 console.log("selectorValue: " + selectorValue);
                 tl.setVariable("selectorValue", selectorValue);
-                tl.setVariable("serviceExists", true);
+                tl.setVariable("serviceExists", "true");
             });
     });
 }
