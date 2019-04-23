@@ -41,6 +41,7 @@ try {
         }
     }).catch((error) => {
         //if(error.message.contains("(NotFound)")){
+            console.log("error set serviceExists to false");
             tl.setVariable("serviceExists", false);
             tl.setResult(tl.TaskResult.Succeeded, "");
         //}
