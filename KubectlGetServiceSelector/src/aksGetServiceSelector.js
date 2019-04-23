@@ -58,7 +58,12 @@ function run(clusterConnection, command) {
             .then(function() {
                 var podService = tl.getVariable('podServiceContent');
                 let json = JSON.parse(podService);
-                tl.setVariable("selectorValue", "invalid");
+                console.log(json);
+                var selectorName = tl.getVariable("targetSelectorName");
+
+                var selectorValue = json.spec.selector[selectorName];
+                console.log("selectorValue: " + selectorValue);
+                tl.setVariable("selectorValue", selectorValue);
             });
     });
 }
