@@ -14,7 +14,6 @@ const azure_arm_endpoint_1 = require("azure-arm-rest/azure-arm-endpoint");
 
 // get kubeconfig file content
 function getKubeConfigFromAKS(azureSubscriptionEndpoint, resourceGroup, clusterName) {
-    console.log("getKubeConfigFromAKS");
     return __awaiter(this, void 0, void 0, function* () {
         var azureEndpoint = yield (new azure_arm_endpoint_1.AzureRMEndpoint(azureSubscriptionEndpoint)).getEndpoint();
         var aks = new azure_arm_aks_service_1.AzureAksService(azureEndpoint);
