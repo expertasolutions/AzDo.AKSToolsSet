@@ -63,8 +63,7 @@ function run(clusterConnection, command) {
                     tl.setVariable("selectorValue", selectorValue);
                     tl.setVariable("serviceExists", true);
                 });
-        } catch(err) {
-            console.log("failed: " + err);
+        } catch {
             tl.setVariable("serviceExists", false);
         }
     });
