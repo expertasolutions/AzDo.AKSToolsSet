@@ -40,17 +40,15 @@ try {
             connection.close();
         }
     }).catch((error) => {
-        tl.setResult(tl.TaskResult.Failed, error.message);
+        console.log(error.message.contains("(NotFound)"));
+        tl.setVariable("serviceExists", false);
+        //tl.setResult(tl.TaskResult.Failed, error.message);
+        tl.setResult(tl.TaskResult.Succeeded, "");
         connection.close();
     });
 }
 catch (error) {
-    console.log(error.message.contains("(NotFound)"));
-    //if(error.message.contains("(NotFound)")) {
-        tl.setVariable("serviceExists", false);
-    //} else {
-    //    tl.setResult(tl.TaskResult.Failed, error.message);
-    //}
+    tl.setResult(tl.TaskResult.Failed, error.message);
 }
 
 function run(clusterConnection, command) {

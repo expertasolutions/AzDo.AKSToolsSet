@@ -5,7 +5,7 @@ const tl = require("vsts-task-lib/task");
 function run(connection, kubecommand, args, outputUpdate) {
     var command = connection.createCommand();
     command.on("stdout", output => {
-        outputUpdate(output);
+       //outputUpdate(output);
     });
     command.arg(kubecommand);
     command.arg(getNameSpace());
