@@ -34,23 +34,23 @@ try {
     connection.open()
         .then(() => {
         return run(connection, command);
-})
-.then(() => {
-    tl.setResult(tl.TaskResult.Succeeded, "");
-    if (command !== "login") {
+    }).then(() => {
+        tl.setResult(tl.TaskResult.Succeeded, "");
+        if (command !== "login") {
+            connection.close();
+        }
+    }).catch((error) => {
+        tl.setResult(tl.TaskResult.Failed, error.message);
         connection.close();
-    }
-}).catch((error) => {
-    tl.setResult(tl.TaskResult.Failed, error.message);
-    connection.close();
-});
+    });
 }
 catch (error) {
-    if(error.message.contains("(NotFound)")) {
+    console.log(error.message.contains("(NotFound)"));
+    //if(error.message.contains("(NotFound)")) {
         tl.setVariable("serviceExists", false);
-    } else {
-        tl.setResult(tl.TaskResult.Failed, error.message);
-    }
+    //} else {
+    //    tl.setResult(tl.TaskResult.Failed, error.message);
+    //}
 }
 
 function run(clusterConnection, command) {
