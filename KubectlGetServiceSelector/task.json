@@ -93,9 +93,8 @@
         }
     ],
     "outputVariables": [
-        {
-            "name": "selectorValue"
-        }
+        { "name": "selectorValue" }, 
+        { "name": "serviceExists"}
     ],
     "execution": {
         "Node": {
