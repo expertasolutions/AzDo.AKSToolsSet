@@ -9,15 +9,27 @@
 - Hosted VS2017 (supported)
 - Any private build agent with Powershell and Azure CLI installed
 
-# KubectlGetServiceIp (required parameters)
+# KubectlGetServiceIp
 ## Parameters
 - Azure subscription
 - Azure resource group
 - Kubernetes Cluster
 - Target pod service name
 
-## Task Output variables
+## Task output variables
 - $referenceName.podServiceIp
+
+# KubernetesGetServiceSelector
+## Parameters
+- Azure subscription
+- Azure resource group
+- Kubernetes Cluster
+- Target pod service name
+- Selector tag name
+
+## Task output variables
+- $referenceName.selectorValue
+- $referenceName.serviceExists (true|false)
 
 ## Requirements
 - Azure CLI must be installed on the build agent
