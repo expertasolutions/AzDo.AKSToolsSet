@@ -4,6 +4,7 @@
     "friendlyName": "Get Pod service Ip Address",
     "description": "Extract Pod Service Ip Address from Kubernetes Cluster",
     "helpMarkDown": "",
+    "preview": true,
     "category": "Utility",
     "visibility": [
         "Release"
