@@ -15,6 +15,7 @@
 - Azure resource group
 - Kubernetes Cluster
 - Target pod service name
+![KubectlGetServiceIp_Task_inputs](img/getServiceIp.v1.jpg)
 
 ### Task output variables
 - $referenceName.podServiceIp
@@ -26,6 +27,7 @@
 - Kubernetes Cluster
 - Target pod service name
 - Selector tag name
+![KubectlGetServiceSelector_Task_inputs](img/getSelectorValue.v1.jpg)
 
 ### Task output variables
 - $referenceName.selectorValue
