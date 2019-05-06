@@ -9,7 +9,7 @@
 - Hosted VS2017 (supported)
 - Any private build agent with Powershell and Azure CLI installed
 
-# KubectlGetServiceIp
+## KubectlGetServiceIp
 ### Parameters
 - Azure subscription
 - Azure resource group
@@ -19,7 +19,7 @@
 ### Task output variables
 - $referenceName.podServiceIp
 
-# KubernetesGetServiceSelector
+## KubernetesGetServiceSelector
 ### Parameters
 - Azure subscription
 - Azure resource group
