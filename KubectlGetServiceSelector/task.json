@@ -1,8 +1,8 @@
 {
-    "id": "d5993d2d-371f-4d88-b871-5d12484274c5",
-    "name": "KubectlGetServiceIp",
-    "friendlyName": "Get Pod service Ip Address",
-    "description": "Extract Pod Service Ip Address from Kubernetes Cluster",
+    "id": "d5993d3d-371f-4d89-b871-5d12484274c6",
+    "name": "KubectlGetServiceSelector",
+    "friendlyName": "Get Pod service selectors",
+    "description": "Extract Pod Service Selectors from Kubernetes Cluster",
     "helpMarkDown": "",
     "preview": true,
     "category": "Utility",
@@ -16,7 +16,7 @@
         "Patch": "__patch__"
     },
     "demands": [],
-    "instanceNameFormat": "Kubectl Get Service",
+    "instanceNameFormat": "Kubectl Get Service Selector value",
     "groups": [
         {
             "name": "kubernetesCluster",
@@ -65,7 +65,16 @@
             "required": true,
             "helpMarkDown": "",
             "groupName" : "kubernetesCluster"
+        },
+        {
+            "name":"targetSelectorName",
+            "type": "string",
+            "label": "Selector Tag name",
+            "default": "",
+            "required": true,
+            "groupName": "kubernetesCluster"
         }
+
     ],
     "dataSourceBindings": [
         {
@@ -84,14 +93,12 @@
         }
     ],
     "outputVariables": [
-        {
-            "name": "podServiceIp",
-            "description": "Stores the Pod Service Ip address"
-        }
+        { "name": "selectorValue" }, 
+        { "name": "serviceExists" }
     ],
     "execution": {
         "Node": {
-            "target": "src//aksGetServiceIp.js",
+            "target": "src//aksGetServiceSelector.js",
             "argumentFormat": ""
         }
       },

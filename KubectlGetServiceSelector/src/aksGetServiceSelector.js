@@ -31,46 +31,40 @@ var connection = new clusterconnection_1.default(kubeconfigfilePath);
 
 try {
     console.log(connection);
-    connection.open().then(() => {
+    connection.open()
+        .then(() => {
         return run(connection, command);
-    })
-    .then(() => {
+    }).then(() => {
         tl.setResult(tl.TaskResult.Succeeded, "");
         if (command !== "login") {
             connection.close();
         }
     }).catch((error) => {
-        tl.setResult(tl.TaskResult.Failed, error.message);
+        tl.setResult(tl.TaskResult.Succeeded, "");
         connection.close();
     });
 }
 catch (error) {
-    tl.setResult(tl.TaskResult.Failed, error.message);
+    //tl.setResult(tl.TaskResult.Failed, error.message);
 }
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
-        var targetServiceName = tl.getInput("targetService", true);
-        console.log("targetService: " + targetServiceName);
+        
+        tl.setVariable("serviceExists", "false");
+        tl.setVariable("selectorValue", "");
 
-        console.log("Finding pod service ip address...");
-        while(tl.getVariable("podServiceIp") == null) {
-            console.log("Pod Service Ip not found, still looking")
-            yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
-                .then(function() {
-                    var podService = tl.getVariable('podServiceContent');
-                    let json = JSON.parse(podService);
-                    var ingress = json.status.loadBalancer.ingress;
-                    if(ingress != null && ingress.length == 1) {
-                        let ingress = json.status.loadBalancer.ingress[0];
-                        console.log("Pod Service Ip Address founds: " + ingress.ip);
-                        tl.setVariable("podServiceIp", ingress.ip);
-                    } else {
-                        console.log("Wait 10 seconds...")
-                        sleep(10);
-                    }
-                });
-        };
+        var targetServiceName = tl.getInput("targetService", true);
+        yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
+            .then(function() {
+                var podService = tl.getVariable('podServiceContent');
+                let json = JSON.parse(podService);
+                var selectorName = tl.getInput("targetSelectorName", true);
+                var selectorValue = json.spec.selector[selectorName];
+                console.log("selectorValue: " + selectorValue);
+                tl.setVariable("selectorValue", selectorValue);
+                tl.setVariable("serviceExists", "true");
+            });
     });
 }
 

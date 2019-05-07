@@ -113,7 +113,7 @@ class ClusterConnection {
             errlines.push(line);
         });
         return command.exec(options).fail(error => {
-            errlines.forEach(line => tl.error(line));
+            //errlines.forEach(line => tl.error(line));
             throw error;
         });
     }

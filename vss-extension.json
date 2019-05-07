@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "KubectlGetServiceIp",
-  "name": "Kubernetes Service Address Ip extractor",
+  "name": "Kubernetes Service Toolkit",
   "version": "__major__.__minor__.__patch__",
   "publisher": "experta",
   "targets": [
@@ -9,7 +9,7 @@
           "id": "Microsoft.VisualStudio.Services"
       }
   ],    
-  "description": "Extract Pod Service Ip Address from Kubernetes Cluster",
+  "description": "Extract Pod Service Infos",
   "tags": [
     "Kubernetes",
     "Containers",
@@ -55,7 +55,8 @@
   }
 ],
   "files": [
-      { "path": "KubectlGetServiceIp" }
+      { "path": "KubectlGetServiceIp" },
+      { "path": "KubectlGetServiceSelector"}
   ],
   "public": true,
   "contributions": [
@@ -68,6 +69,16 @@
           "properties": {
               "name": "KubectlGetServiceIp"
           }
-      }
+      },
+      {
+        "id": "KubectlGetServiceSelector-task",
+        "type": "ms.vss-distributed-task.task",
+        "targets": [
+            "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+            "name": "KubectlGetServiceSelector"
+        }
+    }
   ]
 }
