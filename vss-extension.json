@@ -56,7 +56,8 @@
 ],
   "files": [
       { "path": "KubectlGetServiceIp" },
-      { "path": "KubectlGetServiceSelector"}
+      { "path": "KubectlGetServiceSelector"},
+      { "path": "img", "addressable": true }
   ],
   "public": true,
   "contributions": [
