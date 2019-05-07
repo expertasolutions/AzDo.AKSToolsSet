@@ -31,19 +31,18 @@ var connection = new clusterconnection_1.default(kubeconfigfilePath);
 
 try {
     console.log(connection);
-    connection.open()
-        .then(() => {
+    connection.open().then(() => {
         return run(connection, command);
-})
-.then(() => {
+    })
+    .then(() => {
         tl.setResult(tl.TaskResult.Succeeded, "");
-    if (command !== "login") {
-        connection.close();
-    }
-}).catch((error) => {
+        if (command !== "login") {
+            connection.close();
+        }
+    }).catch((error) => {
         tl.setResult(tl.TaskResult.Failed, error.message);
-    connection.close();
-});
+        connection.close();
+    });
 }
 catch (error) {
     tl.setResult(tl.TaskResult.Failed, error.message);
@@ -51,7 +50,6 @@ catch (error) {
 
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
-        console.log("inside it");
         var targetServiceName = tl.getInput("targetService", true);
         console.log("targetService: " + targetServiceName);
 

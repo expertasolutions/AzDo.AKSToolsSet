@@ -17,7 +17,6 @@ const toolLib = require("vsts-task-tool-lib/tool");
 class ClusterConnection {
     
     constructor(existingKubeConfigPath) {
-        console.log("ClusterConnection constructor");
         this.kubectlPath = tl.which("kubectl", false);
         this.userDir = utils.getNewUserDirPath();
         if (existingKubeConfigPath) {

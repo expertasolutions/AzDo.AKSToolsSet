@@ -40,12 +40,7 @@ try {
             connection.close();
         }
     }).catch((error) => {
-        //if(error.message.contains("(NotFound)")){
-            tl.setResult(tl.TaskResult.Succeeded, "");
-        //}
-        //else {
-        //    tl.setResult(tl.TaskResult.Failed, error.message);
-        //}
+        tl.setResult(tl.TaskResult.Succeeded, "");
         connection.close();
     });
 }
