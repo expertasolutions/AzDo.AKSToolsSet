@@ -55,7 +55,7 @@ function run(clusterConnection, command) {
         tl.setVariable("selectorValue", "");
 
         var targetServiceName = tl.getInput("targetService", true);
-        yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName + " --show-all")
+        yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
             .then(function() {
                 var podService = tl.getVariable('podServiceContent');
                 let json = JSON.parse(podService);
