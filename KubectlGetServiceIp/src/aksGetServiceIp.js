@@ -56,7 +56,7 @@ function run(clusterConnection, command) {
         console.log("Finding pod service ip address...");
         while(tl.getVariable("podServiceIp") == null) {
             console.log("Pod Service Ip not found, still looking")
-            yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName)
+            yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName + " --show-all")
                 .then(function() {
                     var podService = tl.getVariable('podServiceContent');
                     let json = JSON.parse(podService);
