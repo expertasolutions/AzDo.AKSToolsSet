@@ -36,12 +36,8 @@
       "default": "icon.png"        
   },
   "content": {
-    "details": {
-      "path": "README.md"
-    },
-    "licences": {
-      "path": "license"
-    }
+    "details": { "path": "README.md" },
+    "licence": { "path": "license" }
   },
   "badges" : [{
     "href" : "https://dev.azure.com/experta/ExpertaSolutions/_build?definitionId=196",
