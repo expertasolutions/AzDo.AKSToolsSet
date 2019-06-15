@@ -65,6 +65,15 @@
             "required": true,
             "helpMarkDown": "",
             "groupName" : "kubernetesCluster"
+        },
+        {
+            "name":"targetNamespace",
+            "type": "string",
+            "label": "Namespace",
+            "defaultValue":"default",
+            "required": true,
+            "helpMarkDown": true,
+            "groupName": "kubernetesCluster"
         }
     ],
     "dataSourceBindings": [

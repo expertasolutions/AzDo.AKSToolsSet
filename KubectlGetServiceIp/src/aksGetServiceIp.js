@@ -51,7 +51,9 @@ catch (error) {
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
         var targetServiceName = tl.getInput("targetService", true);
+        var targetNamespace = tl.getInput("targetNamespace", true);
         console.log("targetService: " + targetServiceName);
+        console.log("targetNamespace: " + targetNamespace);
 
         console.log("Finding pod service ip address...");
         while(tl.getVariable("podServiceIp") == null) {
