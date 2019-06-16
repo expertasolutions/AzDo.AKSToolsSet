@@ -4,5 +4,5 @@ _build
 _packages
 package-lock.json
 .vscode
-.idea
 KubectlGetServiceIp/node_modules
+.idea
