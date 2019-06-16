@@ -51,12 +51,14 @@ catch (error) {
 function run(clusterConnection, command) {
     return __awaiter(this, void 0, void 0, function* () {
         var targetServiceName = tl.getInput("targetService", true);
+        var targetNamespace = tl.getInput("targetNamespace", true);
         console.log("targetService: " + targetServiceName);
+        console.log("targetNamespace: " + targetNamespace);
 
         console.log("Finding pod service ip address...");
         while(tl.getVariable("podServiceIp") == null) {
             console.log("Pod Service Ip not found, still looking")
-            yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName + " --show-all")
+            yield executeKubectlCommand(clusterConnection, "get", "service " + targetServiceName + " -n " + targetNamespace)
                 .then(function() {
                     var podService = tl.getVariable('podServiceContent');
                     let json = JSON.parse(podService);
