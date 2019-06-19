@@ -11,14 +11,14 @@
 
 ## KubectlGetServiceIp
 ### Parameters
-![KubectlGetServiceIp_Task_inputs](img/getServiceIp.v1.jpg)
+![KubectlGetServiceIp_Task_inputs](img/v1/getServiceIp.v1.jpg)
 
 ### Task output variables
 - $referenceName.podServiceIp
 
 ## KubernetesGetServiceSelector
 ### Parameters
-![KubectlGetServiceSelector_Task_inputs](img/getSelectorValue.v1.jpg)
+![KubectlGetServiceSelector_Task_inputs](img/v1/getSelectorValue.v1.jpg)
 
 ### Task output variables
 - $referenceName.selectorValue
