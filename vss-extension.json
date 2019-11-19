@@ -40,8 +40,8 @@
     "licence": { "path": "license" }
   },
   "badges" : [{
-    "href" : "https://dev.azure.com/experta/ExpertaSolutions/_build?definitionId=196",
-    "uri" : "https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/Azure DevOps Extensions/GitHub-AKSToolsSet-CI?branchName=master",
+    "href" : "https://dev.azure.com/experta/Community/_build?definitionId=224&_a=summary",
+    "uri" : "https://dev.azure.com/experta/Community/_apis/build/status/CD-GitHub-AKSToolsSet?branchName=master",
     "description" : "Master Build"
   },
   {
