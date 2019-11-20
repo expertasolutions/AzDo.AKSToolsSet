@@ -18,7 +18,10 @@
     "Azure Pipelines",
     "macOS",
     "linux",
-    "windows"
+    "windows",
+    "aks",
+    "devops",
+    "AzureDevOps"
   ],
   "categories": [
       "Azure Pipelines"
