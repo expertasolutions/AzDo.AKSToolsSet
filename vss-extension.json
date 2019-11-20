@@ -18,7 +18,10 @@
     "Azure Pipelines",
     "macOS",
     "linux",
-    "windows"
+    "windows",
+    "aks",
+    "devops",
+    "AzureDevOps"
   ],
   "categories": [
       "Azure Pipelines"
@@ -40,13 +43,13 @@
     "licence": { "path": "license" }
   },
   "badges" : [{
-    "href" : "https://dev.azure.com/experta/ExpertaSolutions/_build?definitionId=196",
-    "uri" : "https://dev.azure.com/experta/ExpertaSolutions/_apis/build/status/Azure DevOps Extensions/GitHub-AKSToolsSet-CI?branchName=master",
+    "href" : "https://dev.azure.com/experta/Community/_build?definitionId=224&_a=summary",
+    "uri" : "https://dev.azure.com/experta/Community/_apis/build/status/CD-GitHub-AKSToolsSet?branchName=master",
     "description" : "Master Build"
   },
   {
-    "href":"https://dev.azure.com/experta/ExpertaSolutions/_release?definitionId=13",
-    "uri":"https://vsrm.dev.azure.com/experta/_apis/public/Release/badge/5b43050d-0a01-4269-ace5-9e22c920391c/13/73",
+    "href":"https://dev.azure.com/experta/Community/_release?_a=release&definitionId=3",
+    "uri":"https://vsrm.dev.azure.com/experta/_apis/public/Release/badge/97814487-b723-4a7d-a446-f599ab91ea2f/3/9",
     "description":"Public marketplace"
   }
 ],
