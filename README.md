@@ -1,6 +1,8 @@
 # Azure Kubernetes helper tasks package
 Set of tasks to help getting dynamic informations from POD's from Azure Kubernetes Services cluster
 
+![MasterBuildStatus](https://dev.azure.com/experta/Community/_apis/build/status/expertasolutions.AKSToolsSet?branchName=master)
+
 ## Available tasks
 
 ### KubectlGetServiceIp
