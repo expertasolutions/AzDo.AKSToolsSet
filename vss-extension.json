@@ -29,7 +29,8 @@
   "links" : {
       "support" : {
           "uri" : "https://github.com/expertasolutions/AKSToolsSet/issues"
-      }
+      },
+      "privacypolicy": { "uri": "http://experta.ca/privacy/azuredevopsprivacy" } 
   },
   "repository" : {
     "type" : "git",
@@ -40,7 +41,7 @@
   },
   "content": {
     "details": { "path": "README.md" },
-    "licence": { "path": "license" }
+    "license": { "path": "LICENSE" }
   },
   "badges" : [{
     "href" : "https://dev.azure.com/experta/Community/_build?definitionId=238&_a=summary",
