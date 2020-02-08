@@ -29,7 +29,8 @@
   "links" : {
       "support" : {
           "uri" : "https://github.com/expertasolutions/AKSToolsSet/issues"
-      }
+      },
+      "privacypolicy": { "uri": "http://experta.ca/privacy/azuredevopsprivacy" } 
   },
   "repository" : {
     "type" : "git",
