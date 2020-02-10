@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "KubectlGetServiceIp",
-  "name": "Kubernetes Service Toolkit",
+  "name": "Kubernetes Service Helper",
   "version": "__major__.__minor__.__patch__",
   "publisher": "experta",
   "targets": [
