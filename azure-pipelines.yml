@@ -2,14 +2,15 @@ name: AKSToolSet-v2.$(date:yy)$(DayOfYear).$(rev:r)-$(Build.SourceBranchName)
 trigger:
 - master
 - issue*
-workspace:
-    clean: true
+
 pr:
 - master
 
 pool:
   vmImage: macOS-latest
   demands: npm
+workspace:
+  clean: true
 
 steps:
 - task: VersionExtractor@4
