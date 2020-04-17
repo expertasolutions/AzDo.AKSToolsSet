@@ -31,7 +31,7 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
 
   let outputResult = JSON.parse('{ "actionCompleted":"true"}');
   
-  if(outputResult === "Error from server (NotFound)") {
+  if(outputResult.indexOf("Error from server (NotFound)") === 0) {
     throw new Error(outputResult);
   }
 
