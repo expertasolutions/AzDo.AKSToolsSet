@@ -169,7 +169,8 @@ async function run() {
         if(ingress !== null && ingress.length === 1) {
           let ingress = serviceIpResult.status.loadBalancer.ingress[0];
           console.log("Pod Service Ip Address founds: " + ingress.ip);
-          tl.setVariable("podServiceIp", ingress.ip);
+          serviceIp = ingress.ip;
+          tl.setVariable("podServiceIp", serviceIp);
         } else {
           console.log("Service " + targetServiceName + " not ready yet");
           sleep(10);
