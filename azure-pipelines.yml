@@ -30,21 +30,19 @@ steps:
     customCommand: 'install -g typescript' 
 
 - task: Npm@1
-  displayName: 'Build KubectlGetServiceIp'
+  displayName: 'Build KubectlGetServiceSelector'
   inputs:
     command: 'custom'
-    workingDir: KubectlGetServiceIp
+    workingDir: KubectlGetServiceSelector
     customCommand: 'run publishExt'
     verbose: false
-
-
 
 - task: PackageAzureDevOpsExtension@2
   displayName: 'Package Extension: '
   inputs:
     extensionVersion: '$(versionExtractor.fullVersion)'
     updateTasksVersion: true
-    
+
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
