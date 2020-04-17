@@ -10,7 +10,6 @@
   "author": "Solutions Experta Inc.",
   "license": "MIT",
   "dependencies": {
-    "@azure/arm-containerregistry": "^7.0.0",
     "@azure/arm-authorization": "^8.3.2",
     "@azure/arm-resources": "^2.1.0",
     "@azure/graph": "^5.0.0",

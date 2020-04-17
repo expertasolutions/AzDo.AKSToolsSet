@@ -1,9 +1,6 @@
 import * as tl from 'azure-pipelines-task-lib';
-import * as msRest from '@azure/ms-rest-js';
 import * as msRestNodeAuth from '@azure/ms-rest-nodeauth';
-import * as msACR from '@azure/arm-containerregistry';
 import * as resourceManagement from '@azure/arm-resources';
-import * as auth from '@azure/arm-authorization';
 import * as graph from '@azure/graph';
 import * as kubectlUtility from 'utility-common/kubectlutility';
 import * as path from 'path';
