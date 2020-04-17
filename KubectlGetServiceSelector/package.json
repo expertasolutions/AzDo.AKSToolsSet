@@ -1,25 +1,22 @@
 {
-  "name": "KubectlGetServiceSelector",
+  "name": "kubectlgetserviceselector",
   "version": "1.0.0",
   "description": "Extract Pod Service selector asked from Kubernetes Cluster",
   "main": "aksGetServiceSelector.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "publishExt": "npm install && tsc -project tsconfig.json"
   },
   "author": "Solutions Experta Inc.",
   "license": "MIT",
   "dependencies": {
-    "@types/del": "^2.2.0",
-    "@types/glob": "^5.0.10",
-    "@types/mocha": "^2.2.5",
-    "@types/node": "^6.0.101",
-    "@types/q": "^1.5.0",
-    "azure-arm-rest": "file:../_builds/azure-arm-rest-1.0.2.tgz",
-    "del": "2.2.0",
-    "docker-common": "file:../_builds/docker-common-1.0.0.tgz",
-    "moment": "2.21.0",
-    "utility-common": "file:../_builds/utility-common-1.0.2.tgz",
-    "vsts-task-lib": "2.0.5",
-    "vsts-task-tool-lib": "0.4.0"
+    "@azure/arm-containerregistry": "^7.0.0",
+    "@azure/arm-authorization": "^8.3.2",
+    "@azure/arm-resources": "^2.1.0",
+    "@azure/graph": "^5.0.0",
+    "@azure/ms-rest-nodeauth": "^2.0.5",
+    "@types/q": "^1.5.2",
+    "azure-pipelines-task-lib": "^2.9.3",
+    "utility-common": "file:../_builds/utility-common-1.0.2.tgz"
   }
 }

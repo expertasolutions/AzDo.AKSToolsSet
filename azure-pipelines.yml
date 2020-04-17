@@ -1,4 +1,4 @@
-name: AKSToolSet-v1.$(date:yyyy)$(DayOfYear).$(rev:r)-$(Build.SourceBranchName)
+name: AKSToolSet-v2.$(date:yy)$(DayOfYear).$(rev:r)-$(Build.SourceBranchName)
 trigger:
 - master
 - issue*
@@ -12,27 +12,38 @@ pool:
   demands: npm
 
 steps:
-- task: ms-devlabs.vsts-developer-tools-build-tasks.tfx-installer-build-task.TfxInstaller@2
-  displayName: 'Use Node CLI for Azure DevOps (tfx-cli): v0.6.x'
-
-- task: ExpertaPreview.pvprExpertaDevOpsTools.custom-build-release-task.VersionExtractor@4
+- task: VersionExtractor@4
   displayName: 'Version extractor digit'
   inputs:
     stringToAnalyze: '$(build.buildNumber)'
 
+- task: TfxInstaller@2
+  displayName: 'Use Node CLI for Azure DevOps (tfx-cli): v0.6.x'
+
 - task: Npm@1
-  displayName: 'npm install KubectlGetServiceIp'
+  displayName: TypeScript Install
   inputs:
+    command: 'custom'
+    workingDir: 'ACRAKSAccess'
+    customCommand: 'install -g typescript' 
+
+- task: Npm@1
+  displayName: 'Build KubectlGetServiceIp'
+  inputs:
+    command: 'custom'
     workingDir: KubectlGetServiceIp
+    customCommand: 'run publishExt'
     verbose: false
 
 - task: Npm@1
-  displayName: 'npm install KubectlGetServiceSelector'
+  displayName: 'Build KubectlGetServiceSelector'
   inputs:
+    command: 'custom'
     workingDir: KubectlGetServiceSelector
+    customCommand: 'run publishExt'
     verbose: false
 
-- task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageAzureDevOpsExtension@2
+- task: PackageAzureDevOpsExtension@2
   displayName: 'Package Extension: '
   inputs:
     extensionVersion: '$(versionExtractor.fullVersion)'
