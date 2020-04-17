@@ -1,38 +1,51 @@
-name: AKSToolSet-v1.$(date:yyyy)$(DayOfYear).$(rev:r)-$(Build.SourceBranchName)
+name: AKSToolSet-v2.$(date:yy)$(DayOfYear).$(rev:r)-$(Build.SourceBranchName)
 trigger:
 - master
 - issue*
-workspace:
-    clean: all
+
 pr:
 - master
 
 pool:
-  vmImage: macOS-latest
+  vmImage: windows-latest
   demands: npm
+workspace:
+  clean: true
 
 steps:
-- task: ms-devlabs.vsts-developer-tools-build-tasks.tfx-installer-build-task.TfxInstaller@2
-  displayName: 'Use Node CLI for Azure DevOps (tfx-cli): v0.6.x'
-
-- task: ExpertaPreview.pvprExpertaDevOpsTools.custom-build-release-task.VersionExtractor@4
+- task: VersionExtractor@4
+  name: versionExtractor
   displayName: 'Version extractor digit'
   inputs:
     stringToAnalyze: '$(build.buildNumber)'
 
+- task: TfxInstaller@2
+  displayName: 'Use Node CLI for Azure DevOps (tfx-cli): v0.6.x'
+
 - task: Npm@1
-  displayName: 'npm install KubectlGetServiceIp'
+  displayName: TypeScript Install
   inputs:
+    command: 'custom'
+    workingDir: 'KubectlGetServiceIp'
+    customCommand: 'install -g typescript' 
+
+- task: Npm@1
+  displayName: 'Build KubectlGetServiceIp'
+  inputs:
+    command: 'custom'
     workingDir: KubectlGetServiceIp
+    customCommand: 'run publishExt'
     verbose: false
 
 - task: Npm@1
-  displayName: 'npm install KubectlGetServiceSelector'
+  displayName: 'Build KubectlGetServiceSelector'
   inputs:
+    command: 'custom'
     workingDir: KubectlGetServiceSelector
+    customCommand: 'run publishExt'
     verbose: false
 
-- task: ms-devlabs.vsts-developer-tools-build-tasks.package-extension-build-task.PackageAzureDevOpsExtension@2
+- task: PackageAzureDevOpsExtension@2
   displayName: 'Package Extension: '
   inputs:
     extensionVersion: '$(versionExtractor.fullVersion)'
@@ -42,7 +55,9 @@ steps:
   displayName: 'Copy Files to: $(Build.ArtifactStagingDirectory)'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '*.vsix'
+    Contents: |
+      *.vsix
+      CurrentReleaseNotes.md
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1
