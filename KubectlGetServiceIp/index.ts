@@ -35,7 +35,8 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
   console.log("stderr:" + outputResult.stderr);
   console.log("Test Index: " + outputResult.stderr.indexOf("Error from server (NotFound)"));
   if(outputResult.stderr.indexOf("Error from server (NotFound)") === 0) {
-    tl.setResult(tl.TaskResult.Failed, outputResult.stderr || 'run() failed');
+    //tl.setResult(tl.TaskResult.Failed, outputResult.stderr || 'run() failed');
+    throw new Error(outputResult.stderr);
   }
 
   if(cmd === "delete") {
