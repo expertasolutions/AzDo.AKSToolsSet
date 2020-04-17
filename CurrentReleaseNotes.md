@@ -2,11 +2,11 @@
 
 - ### [Issue0016](https://github.com/expertasolutions/AKSToolsSet/issues/16)
 
-  - **KubectlGetServiceIP** task
+  - **KubectlGetServiceIP**
     - Task source code update to Typescript
     - Update npm @azure dependencies
 
-  - **KubectlGetServiceSelector** task
+  - **KubectlGetServiceSelector**
     - Task source code update to Typescript
     - Update npm @azure dependencies
 
