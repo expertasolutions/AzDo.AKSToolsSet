@@ -30,6 +30,14 @@ steps:
     customCommand: 'install -g typescript' 
 
 - task: Npm@1
+  displayName: 'Build KubectlGetServiceIp'
+  inputs:
+    command: 'custom'
+    workingDir: KubectlGetServiceIp
+    customCommand: 'run publishExt'
+    verbose: false
+
+- task: Npm@1
   displayName: 'Build KubectlGetServiceSelector'
   inputs:
     command: 'custom'
