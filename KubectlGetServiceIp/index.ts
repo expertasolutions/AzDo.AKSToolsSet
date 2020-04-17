@@ -172,8 +172,8 @@ async function run() {
           sleep(10);
         }
       }
-    } catch {
-      throw new Error("global error from kubectlCmd");
+    } catch(error) {
+      throw error;
     } finally {
       if(kubeConfigFile != null && fs.existsSync(kubeConfigFile)) {
         delete process.env["KUBECONFIG"];

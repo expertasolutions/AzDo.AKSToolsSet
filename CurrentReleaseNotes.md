@@ -9,6 +9,7 @@
   - **KubectlGetServiceSelector**
     - Task source code update to Typescript
     - Update npm @azure dependencies
+    - Warning is raise when selectorName isn't existing
 
 - ### [Issue0016](https://github.com/expertasolutions/AKSToolsSet/issues/23)
 

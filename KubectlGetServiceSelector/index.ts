@@ -165,8 +165,7 @@ async function run() {
         tl.setVariable("serviceExists", "false");
       }
     } catch (error) {
-      console.log(error);
-      throw new Error("global error from kubectlCmd");
+      throw error;      
     } finally {
       if(kubeConfigFile != null && fs.existsSync(kubeConfigFile)) {
         delete process.env["KUBECONFIG"];
