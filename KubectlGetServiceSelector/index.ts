@@ -158,7 +158,7 @@ async function run() {
 
         let podService = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath);
         let serviceObject = JSON.parse(podService);
-        
+        console.log("find selector index: " + serviceObject.spec.selector.indexOf(selectorName));
         if(serviceObject.spec.selector.indexOf(selectorName) > -1) {
           let selectorValue = serviceObject.spec.selector[selectorName];
           console.log("selectorValue: " + selectorValue);
@@ -169,7 +169,8 @@ async function run() {
           tl.setVariable("serviceExists", "false");
         }      
       }
-    } catch {
+    } catch (error) {
+      console.log(error);
       throw new Error("global error from kubectlCmd");
     } finally {
       if(kubeConfigFile != null && fs.existsSync(kubeConfigFile)) {
