@@ -162,6 +162,8 @@ async function run() {
         tl.setVariable("selectorValue", selectorValue);
         tl.setVariable("serviceExists", "true");
       } else {
+        let errorMsg = "selectorValue for '" + selectorName + "' doesn't exists for service '" + targetServiceName + "'";
+        tl.warning(errorMsg);
         tl.setVariable("selectorValue", "not found");
         tl.setVariable("serviceExists", "false");
       }
