@@ -9,7 +9,7 @@
           "id": "Microsoft.VisualStudio.Services"
       }
   ],    
-  "description": "Extract Pod Service Infos",
+  "description": "Extract AKS Service Infos",
   "tags": [
     "Kubernetes",
     "Containers",
