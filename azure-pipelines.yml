@@ -37,13 +37,7 @@ steps:
     customCommand: 'run publishExt'
     verbose: false
 
-- task: Npm@1
-  displayName: 'Build KubectlGetServiceSelector'
-  inputs:
-    command: 'custom'
-    workingDir: KubectlGetServiceSelector
-    customCommand: 'run publishExt'
-    verbose: false
+
 
 - task: PackageAzureDevOpsExtension@2
   displayName: 'Package Extension: '
