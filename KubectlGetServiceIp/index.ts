@@ -30,16 +30,10 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
   });
 
   let outputResult = kubectlCmd.execSync();
-  
-  console.log("stdout: " + outputResult.stdout);
-  console.log("stderr:" + outputResult.stderr);
-  console.log("Test Index: " + outputResult.stderr.indexOf("Error from server (NotFound)"));
   if(outputResult.stderr.indexOf("Error from server (NotFound)") === 0) {
-    //tl.setResult(tl.TaskResult.Failed, outputResult.stderr || 'run() failed');
     throw new Error(outputResult.stderr);
   }
-
-  if(cmd === "delete") {
+  else if(cmd === "delete") {
     return JSON.parse('{ "actionCompleted":"true"}');
   } else {
     outputResult = JSON.parse(kubectlCmd.execSync().stdout);
