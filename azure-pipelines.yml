@@ -13,6 +13,7 @@ pool:
 
 steps:
 - task: VersionExtractor@4
+  name: versionExtractor
   displayName: 'Version extractor digit'
   inputs:
     stringToAnalyze: '$(build.buildNumber)'
