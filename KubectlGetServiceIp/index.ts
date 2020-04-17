@@ -30,6 +30,10 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
   });
 
   let outputResult = JSON.parse('{ "actionCompleted":"true"}');
+  if(outputResult === "Error from server (NotFound)") {
+    throw new Error(outputResult);
+  }
+
   if(cmd === "delete") {
     kubectlCmd.execSync();
   } else {
