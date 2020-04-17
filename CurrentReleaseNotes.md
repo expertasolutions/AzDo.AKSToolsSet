@@ -11,7 +11,7 @@
     - Update npm @azure dependencies
     - Warning is raise when selectorName isn't existing
 
-- ### [Issue0016](https://github.com/expertasolutions/AKSToolsSet/issues/23)
+- ### [Issue0023](https://github.com/expertasolutions/AKSToolsSet/issues/23)
 
   - Add the Release notes support for GitHub release to the VisualStudio Marketplace page
 
