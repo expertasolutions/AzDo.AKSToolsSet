@@ -30,6 +30,7 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
   });
 
   let outputResult = kubectlCmd.execSync().stdout;
+  console.log("Test Index: " + outputResult.indexOf("Error from server (NotFound)"));
   if(outputResult.indexOf("Error from server (NotFound)") === 0) {
     tl.setResult(tl.TaskResult.Failed, outputResult || 'run() failed');
   }
