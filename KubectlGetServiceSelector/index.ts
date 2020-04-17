@@ -29,14 +29,13 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
     console.log("stdout called");
   });
 
-  let outputResult = JSON.parse('{ "actionCompleted":"true"}');
-  
+  let outputResult = kubectlCmd.execSync().stdout;
   if(outputResult.indexOf("Error from server (NotFound)") === 0) {
     throw new Error(outputResult);
   }
 
   if(cmd === "delete") {
-    kubectlCmd.execSync();
+    return JSON.parse('{ "actionCompleted":"true"}');
   } else {
     outputResult = JSON.parse(kubectlCmd.execSync().stdout);
   }
