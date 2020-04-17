@@ -3,7 +3,7 @@ trigger:
 - master
 - issue*
 workspace:
-    clean: all
+    clean: true
 pr:
 - master
 
