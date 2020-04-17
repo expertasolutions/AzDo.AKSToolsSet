@@ -68,7 +68,7 @@
               "ms.vss-distributed-task.tasks"
           ],
           "properties": {
-              "name": "KubectlGetServiceIp"
+              "name": "kubectlgetserviceip"
           }
       },
       {
@@ -78,7 +78,7 @@
             "ms.vss-distributed-task.tasks"
         ],
         "properties": {
-            "name": "KubectlGetServiceSelector"
+            "name": "kubectlgetserviceselector"
         }
     }
   ]
