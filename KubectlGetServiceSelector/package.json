@@ -2,7 +2,7 @@
   "name": "kubectlgetserviceselector",
   "version": "1.0.0",
   "description": "Extract Pod Service selector asked from Kubernetes Cluster",
-  "main": "aksGetServiceSelector.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "publishExt": "npm install && tsc -project tsconfig.json"
