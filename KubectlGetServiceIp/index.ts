@@ -32,7 +32,6 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
   let outputResult = kubectlCmd.execSync().stdout;
   if(outputResult.indexOf("Error from server (NotFound)") === 0) {
     tl.setResult(tl.TaskResult.Failed, outputResult || 'run() failed');
-    //throw new Error(outputResult);
   }
 
   if(cmd === "delete") {
