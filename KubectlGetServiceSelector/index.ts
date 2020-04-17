@@ -158,6 +158,9 @@ async function run() {
 
         let podService = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath);
         console.log("find selector index: " + podService.spec.selector.indexOf(selectorName));
+
+        console.log("selectorValue: " + podService.spec.selector[selectorName]);
+
         if(podService.spec.selector.indexOf(selectorName) > -1) {
           let selectorValue = podService.spec.selector[selectorName];
           console.log("selectorValue: " + selectorValue);
