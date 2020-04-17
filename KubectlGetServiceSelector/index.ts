@@ -148,27 +148,22 @@ async function run() {
     process.env["KUBECONFIG"] = kubeConfigFile;
 
     try {
-      let serviceIp = null;
-      while(serviceIp === null) {
+      let cmdNamespace:any[] = [];
+      if(targetNamespace !== "") {
+        cmdNamespace = [ "-n", targetNamespace];
+      }
 
-        let cmdNamespace:any[] = [];
-        if(targetNamespace !== "") {
-          cmdNamespace = [ "-n", targetNamespace];
-        }
+      let podService = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath);
+      let selectorValue = podService.spec.selector[selectorName];
 
-        let podService = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath);
+      if(selectorValue !== undefined) {
         let selectorValue = podService.spec.selector[selectorName];
-        console.log("selectorValue: " + podService.spec.selector[selectorName]);
-
-        if(selectorValue !== undefined) {
-          let selectorValue = podService.spec.selector[selectorName];
-          console.log("selectorValue: " + selectorValue);
-          tl.setVariable("selectorValue", selectorValue);
-          tl.setVariable("serviceExists", "true");
-        } else {
-          tl.setVariable("selectorValue", "not found");
-          tl.setVariable("serviceExists", "false");
-        }
+        console.log("selectorValue: " + selectorValue);
+        tl.setVariable("selectorValue", selectorValue);
+        tl.setVariable("serviceExists", "true");
+      } else {
+        tl.setVariable("selectorValue", "not found");
+        tl.setVariable("serviceExists", "false");
       }
     } catch (error) {
       console.log(error);
