@@ -24,7 +24,7 @@ steps:
   displayName: TypeScript Install
   inputs:
     command: 'custom'
-    workingDir: 'ACRAKSAccess'
+    workingDir: 'KubectlGetServiceIp'
     customCommand: 'install -g typescript' 
 
 - task: Npm@1
