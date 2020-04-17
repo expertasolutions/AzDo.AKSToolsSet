@@ -164,7 +164,6 @@ async function run() {
         }
 
         let serviceIpResult = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath);
-
         let ingress = serviceIpResult.status.loadBalancer.ingress;
         if(ingress !== null && ingress.length === 1) {
           let ingress = serviceIpResult.status.loadBalancer.ingress[0];
