@@ -7,7 +7,7 @@ pr:
 - master
 
 pool:
-  vmImage: macOS-latest
+  vmImage: windows-latest
   demands: npm
 workspace:
   clean: true
