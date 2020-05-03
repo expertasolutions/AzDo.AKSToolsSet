@@ -1,18 +1,7 @@
 ## Related Issues
 
-- ### [Issue0016](https://github.com/expertasolutions/AKSToolsSet/issues/16)
+- ### [Issue0026](https://github.com/expertasolutions/AKSToolsSet/issues/26)
 
-  - **KubectlGetServiceIP**
-    - Task source code update to Typescript
-    - Update npm @azure dependencies
+  - Add input name: "Fail if service not exists"
 
-  - **KubectlGetServiceSelector**
-    - Task source code update to Typescript
-    - Update npm @azure dependencies
-    - Warning is raise when selectorName isn't existing
-
-- ### [Issue0023](https://github.com/expertasolutions/AKSToolsSet/issues/23)
-
-  - Add the Release notes support for GitHub release to the VisualStudio Marketplace page
-
-    ![Issue0023](_ReleaseNotes/Issue0023/Issue0023-01.png)
+    ![Issue0026](_ReleaseNotes/Issue0026/Issue0026-01.png)
