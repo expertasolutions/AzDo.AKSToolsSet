@@ -85,7 +85,7 @@
         },
         {
             "name": "failOnNotFound",
-            "type": "string",
+            "type": "boolean",
             "label": "Fail if service not exists",
             "defaultValue": false,
             "required": false,
