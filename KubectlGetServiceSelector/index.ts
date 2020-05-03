@@ -77,6 +77,7 @@ async function run() {
     let targetServiceName = tl.getInput("targetService", true) as string;
     let targetNamespace = tl.getInput("targetNamespace", true) as string;
     let selectorName = tl.getInput("targetSelectorName", true) as string;
+    let failOnNotFound = tl.getBoolInput("failOnNotFound", false);
 
     console.log("");
     console.log("AKS Azure Subscription Id: " + aksSubcriptionId);
@@ -86,6 +87,7 @@ async function run() {
     console.log("targetService: " + targetServiceName);
     console.log("targetNamespace: " + targetNamespace);
     console.log("selectorName: " + selectorName);
+    console.log("failOnNotFound: " + failOnNotFound);
     console.log("");
 
     console.log("Looking for Azure Kubernetes service cluster ...");
