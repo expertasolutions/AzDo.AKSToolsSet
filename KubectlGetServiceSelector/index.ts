@@ -176,7 +176,7 @@ async function run() {
           let errorMsg = "selectorValue for '" + selectorName + "' doesn't exists for service '" + targetServiceName + "'";
           tl.warning(errorMsg);
           tl.setVariable("selectorValue", "not found");
-          tl.setVariable("serviceExists", "false");
+          tl.setVariable("serviceExists", "true");
         }
       }
     } catch (error) {
