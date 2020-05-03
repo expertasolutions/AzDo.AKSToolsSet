@@ -15,7 +15,3 @@ Tools to help getting dynamic informations from Azure Kubernetes cluster service
 #### Task output variables
 - $referenceName.selectorValue
 - $referenceName.serviceExists (true|false)
-
-## Supported build agents
-- Hosted macOS build agent (supported)
-- Hosted VS2017 (supported)
