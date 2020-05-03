@@ -12,7 +12,7 @@ async function LoginToAzure(servicePrincipalId:string, servicePrincipalKey:strin
   return await msRestNodeAuth.loginWithServicePrincipalSecret(servicePrincipalId, servicePrincipalKey, tenantId );
 };
 
-async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line:string, kubectlPath:string) {
+async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line:string, kubectlPath:string, failOnNotFound: boolean) {
   let kubectlCmd = tl.tool(kubectlPath);
 
   kubectlCmd.arg(cmd);
@@ -31,7 +31,11 @@ async function kubectl(cmd:string, namespace:[], configFile:[],type:string, line
 
   let outputResult = kubectlCmd.execSync();
   if(outputResult.stderr.indexOf("Error from server (NotFound)") === 0) {
-    throw new Error(outputResult.stderr);
+    if(failOnNotFound){
+      throw new Error(outputResult.stderr);
+    } else {
+      return undefined;
+    }
   }
   else if(cmd === "delete") {
     return JSON.parse('{ "actionCompleted":"true"}');
@@ -155,19 +159,25 @@ async function run() {
         cmdNamespace = [ "-n", targetNamespace];
       }
 
-      let podService = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath);
-      let selectorValue = podService.spec.selector[selectorName];
-
-      if(selectorValue !== undefined) {
-        let selectorValue = podService.spec.selector[selectorName];
-        console.log("selectorValue: " + selectorValue);
-        tl.setVariable("selectorValue", selectorValue);
-        tl.setVariable("serviceExists", "true");
-      } else {
+      let podService = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath, failOnNotFound);
+      if(podService === undefined) {
         let errorMsg = "selectorValue for '" + selectorName + "' doesn't exists for service '" + targetServiceName + "'";
         tl.warning(errorMsg);
         tl.setVariable("selectorValue", "not found");
         tl.setVariable("serviceExists", "false");
+      } else {     
+        let selectorValue = podService.spec.selector[selectorName];
+        if(selectorValue !== undefined) {
+          let selectorValue = podService.spec.selector[selectorName];
+          console.log("selectorValue: " + selectorValue);
+          tl.setVariable("selectorValue", selectorValue);
+          tl.setVariable("serviceExists", "true");
+        } else {
+          let errorMsg = "selectorValue for '" + selectorName + "' doesn't exists for service '" + targetServiceName + "'";
+          tl.warning(errorMsg);
+          tl.setVariable("selectorValue", "not found");
+          tl.setVariable("serviceExists", "false");
+        }
       }
     } catch (error) {
       throw error;      
