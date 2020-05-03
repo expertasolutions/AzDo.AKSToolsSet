@@ -82,6 +82,15 @@
             "required": true,
             "helpMarkDown": true,
             "groupName": "kubernetesCluster"
+        },
+        {
+            "name": "failOnNotFound",
+            "type": "boolean",
+            "label": "Fail if service not exists",
+            "defaultValue": false,
+            "required": false,
+            "helpMarkDown": false,
+            "groupName": "kubernetesCluster"
         }
     ],
     "dataSourceBindings": [

@@ -4,18 +4,14 @@ Tools to help getting dynamic informations from Azure Kubernetes cluster service
 ## Available tasks
 
 ### KubectlGetServiceIp
-![KubectlGetServiceIp_Task_inputs](img/v1/getServiceIp.v1.jpg)
+![KubectlGetServiceIp_Task_inputs](img/v2/getServiceIp.v2.png)
 
 #### Task output variables
 - $referenceName.podServiceIp
 
 ### KubernetesGetServiceSelector
-![KubectlGetServiceSelector_Task_inputs](img/v1/getSelectorValue.v1.jpg)
+![KubectlGetServiceSelector_Task_inputs](img/v2/getSelectorValue.v2.png)
 
 #### Task output variables
 - $referenceName.selectorValue
 - $referenceName.serviceExists (true|false)
-
-## Supported build agents
-- Hosted macOS build agent (supported)
-- Hosted VS2017 (supported)
