@@ -172,7 +172,7 @@ async function run() {
           tl.setVariable("podServiceIp", serviceIp);
         } else {
           console.log("Service " + targetServiceName + " not ready yet");
-          sleep(10);
+          sleep(5000);
         }
       }
     } catch(error) {
