@@ -165,20 +165,20 @@ async function run() {
 
         let serviceIpResult = await kubectl("get", cmdNamespace as [] ,[], "service", targetServiceName, kubectlPath);
         let ingress = serviceIpResult.status.loadBalancer.ingress;
-        if(ingress !== null && ingress.length === 1) {
+        if(ingress !== undefined && ingress.length === 1) {
           let ingress = serviceIpResult.status.loadBalancer.ingress[0];
           console.log("Pod Service Ip Address founds: " + ingress.ip);
           serviceIp = ingress.ip;
           tl.setVariable("podServiceIp", serviceIp);
         } else {
           console.log("Service " + targetServiceName + " not ready yet");
-          sleep(10);
+          sleep(10000);
         }
       }
     } catch(error) {
       throw error;
     } finally {
-      if(kubeConfigFile != null && fs.existsSync(kubeConfigFile)) {
+      if(kubeConfigFile !== null && fs.existsSync(kubeConfigFile)) {
         delete process.env["KUBECONFIG"];
         fs.unlinkSync(kubeConfigFile);
       }

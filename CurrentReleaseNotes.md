@@ -1,7 +1,7 @@
 ## Related Issues
 
-- ### [Issue0026](https://github.com/expertasolutions/AKSToolsSet/issues/26)
+- ### [Issue0029](https://github.com/expertasolutions/AKSToolsSet/issues/29)
 
-  - Add input name: "Fail if service not exists"
-
-    ![Issue0026](_ReleaseNotes/Issue0026/Issue0026-01.png)
+  - Fix the failure when AKS Pod Service is waiting for an Public IP Address to be assign to LoadBalancer
+    Regression cause by the release "[2.20124.12](https://github.com/expertasolutions/AKSToolsSet/releases/tag/2.20124.12)"
+    
